@@ -1,0 +1,19 @@
+<button class="button" routerLink = "/login">Login</button>
+<button class="button" routerLink = '/register'>Register</button>
+
+<form [formGroup]="loginFormData" (ngSubmit)="loginData()" *ngIf="loginFlag">
+<div class="col">
+  <h1>Login</h1>
+  <input type="text" placeholder="Username" formControlName="userName">
+  <div *ngIf="login.userName.errors && login.userName.touched" class="">
+    <div *ngIf="login.userName.errors.required">username is required!</div>
+  </div>
+  <input type="password" placeholder="Password" formControlName="password">
+  <div *ngIf="login.password.errors && login.password.touched" class="">
+    <div *ngIf="login.password.errors.required">password is required!</div>
+  </div>
+  <input type="submit" [disabled] = "!loginFormData.valid" value="Login">
+</div>
+</form>
+
+

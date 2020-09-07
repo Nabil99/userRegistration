@@ -1,0 +1,27 @@
+<button class="button" routerLink = "/login">Go To Login</button>
+
+<form [formGroup]="registerFormData" (ngSubmit)="registerData()">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill this form to Register.</p>
+    <hr>
+    <input type="text" placeholder="userName" formControlName="userName">
+    <div *ngIf="register.userName.errors && register.userName.touched" class="">
+      <div *ngIf="register.userName.errors.required">UserName is required!</div>
+    </div>
+    <input type="text" placeholder="Email" formControlName="email">
+    <div *ngIf="register.email.errors && register.email.touched" class="">
+      <div *ngIf="register.email.errors.required">Email is required!</div>
+    </div>
+    <input type="password" placeholder="Password" formControlName="password">
+    <div *ngIf="register.password.errors && register.password.touched" class="">
+      <div *ngIf="register.password.errors.required">password is required!</div>
+    </div>
+    <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+    <div *ngIf="register.confirmPassword.errors && register.confirmPassword.touched" class="">
+      <div *ngIf="register.confirmPassword.errors.required">Confirm password is required!</div>
+    </div>
+    <hr>
+    <button type="submit" [disabled] = "!registerFormData.valid" class="registerbtn">Register</button>
+  </div>
+</form>

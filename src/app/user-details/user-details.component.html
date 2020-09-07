@@ -1,0 +1,30 @@
+<h1>Users List</h1>
+<button class="button" routerLink = "/userRegister">User Registration Form</button>
+<button class="button" routerLink = "/userDetails">UserDetails</button>
+<table *ngIf="hideUserDetails">
+  <tr>
+  <th>No</th>
+  <th>First Name</th>
+  <th>last Name</th>
+  <th>Mobile No</th>
+  <th>Email</th>
+  <th>DOB</th>
+  <th>Qualification</th>
+  <th>Edit</th>
+  <th>Delete</th>
+</tr>
+<tr *ngFor="let user of localUserDataAfterParse">
+  <td>{{user.firstName}}</td>
+  <td>{{user.lastName}}</td>
+  <td>{{user.mobileNo}}</td>
+  <td>{{user.email}}</td>
+  <td>{{user.dob}}</td>
+  <td>{{user.timeOfEntry}}</td>
+  <td>{{user.qualification}}</td>
+  <td (click) = "editUser(user)">Edit</td>
+  <td (click) = "deleteUser(user)">Delete</td>
+
+</tr>
+</table>
+
+
